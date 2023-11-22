@@ -1,0 +1,66 @@
+
+1.Link for typescripteslint prettiter
+   https://blog.logrocket.com/linting-typescript-eslint-prettier/
+
+2. // tsconfig.json  a Add kore dibo.
+{
+    "include": ["src"], // which files to compile
+  "exclude": ["node_modules"], // which files to skip
+}
+
+3. Install eslint
+   npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
+4. Let’s create a configuration file using the CLI. Run the following command in the terminal:
+
+     npx eslint --init  
+
+5.  // .eslintrc.json a ruls a rul setup korte parbo
+     "@typescript-eslint/no-unused-vars": "error"
+6.   creating a .eslintignore file and adding the folders or files you want to ignore:
+
+node_modules
+dist
+
+7.This often matches with your .gitignore file content, so to have a single source of truth, you can update the lint script to use the --ignore-path flag:
+
+// package.json
+{
+  // ...
+  "scripts": {
+     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
+   },
+  // ...
+}
+
+8. comment npm run lint
+9. npx eslint src --fix  comment ar maddome aut problem solve kore dibe
+10. amar auto problem sove korar jonee scripts korte pari.
+   "lint:fix": "npx eslint src --fix",
+   and Comment npm run lint:fix
+
+11. Set Rules and globals in .eslintrc.json
+
+ "rules": {
+    "no-unused-vars": "error",
+    "no-unused-expressions": "error",
+    "prefer-const": "error",
+    "no-console": "warn",
+    "no-undef": "error"
+  },
+  "globals": {
+    "process": "readonly"
+  }
+
+Integrating Prettier.........
+
+1.npm install --save-dev prettier
+2. create   // .prettierrc.json
+{
+  "semi": true, // Specify if you want to print semicolons at the end of statements
+  "singleQuote": true, // If you want to use single quotes
+  "arrowParens": "avoid", // Include parenthesis around a sole arrow function parameter
+}
+
+3. create a scripts for auto prettier 
+  "prettier": "prettier --ignore-path .gitignore --write \"./src**/*.+(js|ts|json)\"",
+
