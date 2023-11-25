@@ -1,14 +1,16 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-import app from "./app";
+import app from './app';
 
-import config from "./app/config";
+const prot = 5001;
 
 async function main() {
   try {
-    await mongoose.connect(config.database_url as string);
-    app.listen(config.port, () => {
-      console.log(`App listening on port ${config.port}`);
+    await mongoose.connect(
+      'mongodb+srv://admin_mos:admin12345@cluster0.t90v0gz.mongodb.net/mongose_first_project?retryWrites=true&w=majority',
+    );
+    app.listen(prot, () => {
+      console.log(`App listening on port${prot}`);
     });
   } catch (error) {
     console.log(error);

@@ -64,3 +64,20 @@ Integrating Prettier.........
 3. create a scripts for auto prettier 
   "prettier": "prettier --ignore-path .gitignore --write \"./src**/*.+(js|ts|json)\"",
 
+
+
+
+
+......Moduler Pattern-......
+
+Student-->
+1.student.interfaces.ts
+2.student.routes.ts
+3.student.model.ts
+4.student.controller.ts
+5.student.service.ts
+          
+          req               req                   req                 req
+client.ts------->routes.ts--------->controller.ts <------> service.ts <------> Database
+   |__________________________________|res         res                 res  
+            (Success,message,Data)
